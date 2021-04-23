@@ -34,4 +34,4 @@ jobs:
 
       - name: Upload build folder to S3
         run: |
-          echo 'upload'
+          aws s3 sync . s3://venari-dev
