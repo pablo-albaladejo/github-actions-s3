@@ -14,14 +14,15 @@ jobs:
 
     - name: Build
       run: |
-        echo yarn install 
-        echo yarn build 
+        echo 'yarn install'
+        echo 'yarn build'
 
     - name: Test
       run: |
-        echo yarn test 
+        echo 'yarn test'
 
-  deploy:
+  deploy-to-dev:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Configure AWS credentials
@@ -30,3 +31,6 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-1
+      - name: Upload build folder to S3
+        run: |
+          aws s3 sync ./build s3://venari-dev
