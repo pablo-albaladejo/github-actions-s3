@@ -36,6 +36,4 @@ jobs:
         run: |
           pwd
           ls
-          cd build
-          pwd
           aws s3 sync . s3://venari-dev
