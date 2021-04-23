@@ -35,4 +35,6 @@ jobs:
       - name: Upload build folder to S3
         run: |
           pwd
-          aws s3 sync build s3://venari-dev
+          cd build
+          pwd
+          aws s3 sync . s3://venari-dev
