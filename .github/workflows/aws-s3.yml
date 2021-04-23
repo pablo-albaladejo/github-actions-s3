@@ -35,4 +35,4 @@ jobs:
       - name: Upload build folder to S3
         working-directory: build
         run: |
-          ls
+          echo 'upload'
