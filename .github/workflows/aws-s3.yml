@@ -33,6 +33,6 @@ jobs:
           aws-region: eu-west-1
 
       - name: Upload build folder to S3
-        working-directory: build
+        working-directory: ./build
         run: |
           echo 'upload'
